@@ -1,0 +1,1642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>San Vera — PPC Strategy & Growth Roadmap</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ivory: #FAF7F2;
+    --cream: #F2EDE4;
+    --warm-white: #FEFCF8;
+    --sand: #E8DFD0;
+    --taupe: #C4B49A;
+    --brown: #8B6E52;
+    --espresso: #3D2B1F;
+    --ink: #1A1208;
+    --sage: #7A8C72;
+    --terracotta: #C1623F;
+    --gold: #C9A84C;
+    --sky: #5B8DB8;
+    --red-soft: #B85050;
+    --green-soft: #4A7C5E;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ivory);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* COVER */
+  .cover {
+    min-height: 100vh;
+    background: var(--espresso);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: -100px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(193,98,63,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cover-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .brand-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--taupe);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border: 1px solid rgba(196,180,154,0.3);
+    padding: 8px 16px;
+    border-radius: 2px;
+  }
+  .date-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--taupe);
+    letter-spacing: 0.1em;
+  }
+  .cover-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 0 40px;
+  }
+  .cover-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .cover-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 7vw, 88px);
+    font-weight: 700;
+    color: var(--warm-white);
+    line-height: 1.05;
+    max-width: 780px;
+    margin-bottom: 32px;
+  }
+  .cover-title em { font-style: italic; color: var(--gold); }
+  .cover-subtitle {
+    font-size: 17px;
+    color: rgba(250,247,242,0.55);
+    font-weight: 300;
+    max-width: 480px;
+    line-height: 1.6;
+  }
+  .cover-bottom {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: rgba(196,180,154,0.2);
+    border-top: 1px solid rgba(196,180,154,0.2);
+    padding-top: 40px;
+    margin-top: 40px;
+  }
+  .cover-stat { padding: 24px 0; }
+  .cover-stat-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: var(--warm-white);
+    font-weight: 600;
+  }
+  .cover-stat-value span { color: var(--gold); }
+  .cover-stat-label {
+    font-size: 11px;
+    color: var(--taupe);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  /* NAV */
+  .toc-nav {
+    background: var(--espresso);
+    padding: 20px 60px;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    border-bottom: 1px solid rgba(196,180,154,0.15);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    overflow-x: auto;
+  }
+  .toc-nav a {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--taupe);
+    text-decoration: none;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: color 0.2s;
+  }
+  .toc-nav a:hover { color: var(--gold); }
+
+  /* SECTIONS */
+  .section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 60px;
+  }
+  .section + .section { border-top: 1px solid var(--sand); }
+  .section-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--terracotta);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 600;
+    color: var(--espresso);
+    line-height: 1.15;
+    margin-bottom: 40px;
+  }
+  .section-title em { font-style: italic; color: var(--brown); }
+
+  /* INSIGHT CARDS */
+  .insight-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+  .insight-card {
+    background: var(--warm-white);
+    border: 1px solid var(--sand);
+    border-radius: 4px;
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .insight-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .insight-card.tier-1::before { background: var(--gold); }
+  .insight-card.tier-2::before { background: var(--sky); }
+  .insight-card.tier-3::before { background: var(--sage); }
+  .insight-card.tier-4::before { background: var(--brown); }
+
+  .insight-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px;
+    font-weight: 700;
+    color: var(--sand);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+  .insight-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--espresso);
+    margin-bottom: 12px;
+  }
+  .insight-body {
+    font-size: 14px;
+    color: #5a4a3a;
+    line-height: 1.65;
+  }
+  .insight-badge {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 2px;
+    margin-bottom: 16px;
+  }
+  .badge-learning { background: rgba(201,168,76,0.15); color: #9a7a2e; }
+  .badge-market { background: rgba(91,141,184,0.12); color: var(--sky); }
+  .badge-strategy { background: rgba(122,140,114,0.15); color: var(--sage); }
+  .badge-opportunity { background: rgba(139,110,82,0.12); color: var(--brown); }
+
+  /* EVOLUTION TABLE */
+  .evolution-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin: 32px 0;
+    background: var(--sand);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .evolution-side {
+    background: var(--warm-white);
+    padding: 32px;
+  }
+  .evolution-side.phase-a { background: #F7F4EF; }
+  .evolution-side.phase-b { background: #F3F8F5; }
+  .evolution-header {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--sand);
+  }
+  .evolution-header.phase-a { color: var(--brown); }
+  .evolution-header.phase-b { color: var(--green-soft); }
+  .evolution-item {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 14px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #4a3a2a;
+  }
+  .evo-icon {
+    flex-shrink: 0;
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    margin-top: 2px;
+  }
+  .evo-icon.past { background: rgba(196,180,154,0.3); color: var(--brown); }
+  .evo-icon.now { background: rgba(74,124,94,0.15); color: var(--green-soft); }
+
+  /* PRICE CHART */
+  .price-chart {
+    background: var(--warm-white);
+    border: 1px solid var(--sand);
+    border-radius: 4px;
+    padding: 36px;
+    margin: 32px 0;
+  }
+  .price-chart-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--brown);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .price-bar-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+  .price-bar-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--espresso);
+    width: 120px;
+    flex-shrink: 0;
+  }
+  .price-bar-track {
+    flex: 1;
+    height: 28px;
+    background: var(--cream);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .price-bar-fill {
+    height: 100%;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    padding-left: 12px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    color: white;
+  }
+  .price-bar-fill.competitor { background: var(--taupe); }
+  .price-bar-fill.you { background: var(--terracotta); }
+  .price-bar-fill.target { background: var(--green-soft); }
+
+  /* CAMPAIGN TABLE */
+  .campaign-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 32px 0;
+    font-size: 13px;
+  }
+  .campaign-table th {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--brown);
+    text-align: left;
+    padding: 12px 16px;
+    background: var(--cream);
+    border-bottom: 2px solid var(--sand);
+  }
+  .campaign-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--sand);
+    color: var(--espresso);
+    vertical-align: top;
+  }
+  .campaign-table tr:last-child td { border-bottom: none; }
+  .campaign-table tr:hover td { background: var(--cream); }
+
+  .tag {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 2px;
+    font-weight: 500;
+  }
+  .tag-auto { background: rgba(91,141,184,0.15); color: var(--sky); }
+  .tag-exact { background: rgba(74,124,94,0.15); color: var(--green-soft); }
+  .tag-phrase { background: rgba(201,168,76,0.15); color: #8a6a1e; }
+  .tag-active { background: rgba(74,124,94,0.1); color: var(--green-soft); }
+  .tag-hold { background: rgba(196,180,154,0.3); color: var(--brown); }
+  .tag-later { background: rgba(91,141,184,0.1); color: var(--sky); }
+
+  /* KEYWORD GRID */
+  .keyword-grid { display: grid; gap: 2px; margin: 32px 0; }
+  .kw-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 2fr;
+    gap: 2px;
+    background: var(--sand);
+  }
+  .kw-row.header { background: var(--espresso); }
+  .kw-cell {
+    background: var(--warm-white);
+    padding: 12px 16px;
+    font-size: 13px;
+    color: var(--espresso);
+  }
+  .kw-row.header .kw-cell {
+    background: var(--espresso);
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--taupe);
+  }
+  .kw-keyword { font-weight: 500; }
+  .kw-bid { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--green-soft); }
+
+  /* PHASE TIMELINE */
+  .timeline {
+    position: relative;
+    padding-left: 40px;
+    margin: 40px 0;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 12px; top: 8px; bottom: 8px;
+    width: 2px;
+    background: var(--sand);
+  }
+  .timeline-phase { position: relative; margin-bottom: 48px; }
+  .timeline-phase::before {
+    content: '';
+    position: absolute;
+    left: -34px; top: 8px;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--espresso);
+    border: 3px solid var(--gold);
+  }
+  .phase-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .phase-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  .phase-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--espresso);
+  }
+  .phase-body {
+    background: var(--warm-white);
+    border: 1px solid var(--sand);
+    border-radius: 4px;
+    padding: 28px;
+  }
+  .phase-metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--sand);
+  }
+  .phase-metric-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--espresso);
+  }
+  .phase-metric-label { font-size: 11px; color: var(--brown); margin-top: 2px; }
+
+  /* PROJECTIONS */
+  .projection-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin: 32px 0;
+  }
+  .proj-card {
+    background: var(--warm-white);
+    border: 1px solid var(--sand);
+    border-radius: 4px;
+    padding: 32px;
+    text-align: center;
+  }
+  .proj-phase {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--taupe);
+    margin-bottom: 12px;
+  }
+  .proj-period {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--espresso);
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--sand);
+    font-style: italic;
+  }
+  .proj-metric { margin-bottom: 16px; }
+  .proj-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--espresso);
+  }
+  .proj-value.green { color: var(--green-soft); }
+  .proj-value.gold { color: var(--gold); }
+  .proj-label { font-size: 11px; color: var(--brown); margin-top: 2px; }
+
+  /* NEGATIVE KEYWORDS */
+  .neg-kw-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0; }
+  .neg-kw-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    padding: 6px 14px;
+    border-radius: 2px;
+    background: rgba(184,80,80,0.08);
+    color: var(--red-soft);
+    border: 1px solid rgba(184,80,80,0.15);
+  }
+
+  /* ACOS LADDER */
+  .acos-ladder {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin: 32px 0;
+    background: var(--sand);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .acos-rung {
+    background: var(--warm-white);
+    padding: 24px 20px;
+    text-align: center;
+  }
+  .acos-reviews {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--taupe);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .acos-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .acos-label { font-size: 11px; color: var(--brown); }
+
+  /* CHECKLIST */
+  .checklist { margin: 32px 0; }
+  .checklist-item {
+    display: flex;
+    gap: 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--sand);
+    align-items: flex-start;
+  }
+  .checklist-item:last-child { border-bottom: none; }
+  .checklist-box {
+    width: 22px; height: 22px;
+    border: 2px solid var(--sand);
+    border-radius: 2px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .checklist-item.done .checklist-box {
+    background: var(--green-soft);
+    border-color: var(--green-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .checklist-item.done .checklist-box::after {
+    content: '✓';
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .checklist-content strong {
+    display: block;
+    font-weight: 600;
+    color: var(--espresso);
+    margin-bottom: 4px;
+  }
+  .checklist-content span { font-size: 13px; color: var(--brown); }
+  .checklist-priority {
+    margin-left: auto;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    flex-shrink: 0;
+    padding: 4px 10px;
+    border-radius: 2px;
+  }
+  .priority-now { background: rgba(74,124,94,0.12); color: var(--green-soft); }
+  .priority-soon { background: rgba(201,168,76,0.12); color: #8a6a1e; }
+  .priority-later { background: rgba(91,141,184,0.1); color: var(--sky); }
+
+  /* CALLOUT */
+  .callout {
+    background: var(--espresso);
+    border-radius: 4px;
+    padding: 36px 40px;
+    margin: 40px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .callout::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(201,168,76,0.15) 0%, transparent 70%);
+  }
+  .callout-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--warm-white);
+    margin-bottom: 12px;
+  }
+  .callout-body {
+    font-size: 15px;
+    color: rgba(250,247,242,0.65);
+    line-height: 1.7;
+    max-width: 680px;
+  }
+  .callout-body strong { color: var(--gold); }
+
+  /* FOOTER */
+  .report-footer {
+    background: var(--espresso);
+    padding: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 80px;
+  }
+  .footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--warm-white);
+  }
+  .footer-meta {
+    text-align: right;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--taupe);
+    letter-spacing: 0.1em;
+    line-height: 2;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .cover-main > * { animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both; }
+  .cover-eyebrow { animation-delay: 0.1s; }
+  .cover-title { animation-delay: 0.25s; }
+  .cover-subtitle { animation-delay: 0.4s; }
+  .cover-bottom { animation-delay: 0.5s; }
+
+  /* UTILITIES */
+  .highlight-box {
+    background: linear-gradient(135deg, rgba(201,168,76,0.08), rgba(201,168,76,0.03));
+    border: 1px solid rgba(201,168,76,0.25);
+    border-left: 3px solid var(--gold);
+    border-radius: 2px;
+    padding: 20px 24px;
+    margin: 20px 0;
+    font-size: 14px;
+    color: var(--espresso);
+    line-height: 1.65;
+  }
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin: 32px 0;
+  }
+  .mini-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--brown);
+    margin-bottom: 16px;
+  }
+  ul.dot-list { list-style: none; padding: 0; }
+  ul.dot-list li {
+    padding: 8px 0;
+    padding-left: 20px;
+    position: relative;
+    font-size: 14px;
+    color: #4a3a2a;
+    border-bottom: 1px solid var(--sand);
+    line-height: 1.5;
+  }
+  ul.dot-list li:last-child { border-bottom: none; }
+  ul.dot-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--taupe);
+    font-size: 12px;
+  }
+
+  @media (max-width: 768px) {
+    .cover, .section { padding: 40px 24px; }
+    .insight-grid { grid-template-columns: 1fr; }
+    .evolution-block { grid-template-columns: 1fr; }
+    .projection-grid { grid-template-columns: 1fr; }
+    .acos-ladder { grid-template-columns: repeat(2, 1fr); }
+    .phase-metrics { grid-template-columns: repeat(2, 1fr); }
+    .kw-row { grid-template-columns: 2fr 1fr 1fr; }
+    .kw-row .kw-cell:nth-child(4),
+    .kw-row .kw-cell:nth-child(5) { display: none; }
+    .cover-bottom { grid-template-columns: repeat(2, 1fr); }
+    .toc-nav { padding: 16px 24px; }
+    .report-footer { flex-direction: column; gap: 24px; }
+    .footer-meta { text-align: left; }
+    .two-col { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="cover">
+  <div class="cover-top">
+    <div class="brand-badge">San Vera — PPC Strategy & Growth Roadmap</div>
+    <div class="date-badge">May 2026</div>
+  </div>
+
+  <div class="cover-main">
+    <div class="cover-eyebrow">Amazon Sponsored Ads — Strategy Review & Next Phase</div>
+    <h1 class="cover-title">
+      700 Units. 12 Weeks. <em>One Clear Plan.</em>
+    </h1>
+    <p class="cover-subtitle">
+      A data-driven strategy to sell through San Vera's entire FBA inventory by end of July 2026 — with controlled ad spend and maximum revenue recovery.
+    </p>
+  </div>
+
+  <div class="cover-bottom">
+    <div class="cover-stat">
+      <div class="cover-stat-value">$39<span>.99</span></div>
+      <div class="cover-stat-label">Confirmed Price</div>
+    </div>
+    <div class="cover-stat">
+      <div class="cover-stat-value">~700</div>
+      <div class="cover-stat-label">Units in FBA</div>
+    </div>
+    <div class="cover-stat">
+      <div class="cover-stat-value">$27<span>k+</span></div>
+      <div class="cover-stat-label">Total Revenue Target</div>
+    </div>
+    <div class="cover-stat">
+      <div class="cover-stat-value">Jul<span> 2026</span></div>
+      <div class="cover-stat-label">Sell-Through Deadline</div>
+    </div>
+  </div>
+</section>
+
+<!-- NAV -->
+<nav class="toc-nav">
+  <a href="#context">01 Context</a>
+  <a href="#competitive">02 Market Landscape</a>
+  <a href="#learnings">03 What We Learned</a>
+  <a href="#campaigns">04 Refined Structure</a>
+  <a href="#keywords">05 Keyword Strategy</a>
+  <a href="#timeline">06 Phased Roadmap</a>
+  <a href="#projections">07 Projections</a>
+  <a href="#actions">08 Next Steps</a>
+</nav>
+
+<!-- SECTION 1: CONTEXT -->
+<div id="context" class="section">
+  <div class="section-eyebrow">01 — Where We Are</div>
+  <h2 class="section-title">The Situation: <em>~700 Units, 12 Weeks,</em> Clear Objective</h2>
+
+  <p style="margin-bottom: 28px; color: #5a4a3a; max-width: 740px; font-size:16px; line-height:1.8;">San Vera has approximately 700 units sitting in FBA. With the summer season now in full swing and a sell-through deadline of end of July 2026, we have a focused 12-week window to move all inventory efficiently. Price is confirmed at <strong>$39.99</strong> — a strong, competitive position in the mid-market that gives us real conversion potential without racing to the bottom.</p>
+
+  <p style="margin-bottom: 28px; color: #5a4a3a; max-width: 740px;">The good news: summer dress demand peaks from May through July — we are entering the market at exactly the right moment. The strategy is built around three tightly scoped phases: building velocity in May, scaling hard through June, and closing out remaining stock in July. Every campaign decision flows from this single objective.</p>
+
+  <div class="callout">
+    <div class="callout-title">The Numbers Behind the Plan</div>
+    <div class="callout-body">
+      At $39.99 with ~700 units, total potential revenue is <strong>~$28,000</strong>. To sell through by end of July we need to move approximately <strong>58 units per week</strong> — roughly 8–9 units per day across all variations. That is an achievable target with focused PPC, the right keyword strategy, and the summer season working in our favour. The plan below is designed specifically around this number.
+    </div>
+  </div>
+
+  <div class="insight-grid">
+    <div class="insight-card tier-1">
+      <div class="insight-number">01</div>
+      <span class="insight-badge badge-learning">Key Learning</span>
+      <div class="insight-title">Feature-Specific Keywords Are Our Strongest Signal</div>
+      <div class="insight-body">
+        The clearest data point from our launch campaigns: <strong>"smocked summer dress" delivered 22% ACOS</strong> — by far the best-performing keyword in the account. Specific, feature-based terms where San Vera's product is a natural fit convert at a much higher rate than broad category terms.
+        <br><br>
+        This insight is the cornerstone of our keyword strategy. We lead with what we know works, then layer in broader terms as the listing builds conversion history.
+      </div>
+    </div>
+
+    <div class="insight-card tier-2">
+      <div class="insight-number">02</div>
+      <span class="insight-badge badge-market">Market Timing</span>
+      <div class="insight-title">Peak Season Is Now — The Window Is Open</div>
+      <div class="insight-body">
+        Summer dress search volume peaks between May and July. "Summer dresses for women 2026" is showing <strong>+1,048% growth</strong> in search trend right now. This means our PPC spend will get more impressions per dollar in the next 12 weeks than at any other point in the year.
+        <br><br>
+        Timing is a genuine advantage here. The market is coming to us — our job is to make sure San Vera is visible when shoppers are looking.
+      </div>
+    </div>
+
+    <div class="insight-card tier-3">
+      <div class="insight-number">03</div>
+      <span class="insight-badge badge-strategy">Inventory Logic</span>
+      <div class="insight-title">$39.99 Is the Right Price for This Strategy</div>
+      <div class="insight-body">
+        At $39.99, San Vera sits meaningfully above the cheap fast-fashion segment ($15–$25) while remaining accessible to the mainstream summer shopper. It positions the product as a quality choice rather than a clearance item.
+        <br><br>
+        Break-even ACOS at $39.99 is <strong>~44%</strong>. Our Phase 2 and Phase 3 targets are designed to reach or surpass that, meaning the majority of inventory sold in the back half of this plan will be sold profitably.
+      </div>
+    </div>
+
+    <div class="insight-card tier-4">
+      <div class="insight-number">04</div>
+      <span class="insight-badge badge-opportunity">Opportunity</span>
+      <div class="insight-title">Auto Campaign Is Already Working — We Scale From Here</div>
+      <div class="insight-body">
+        The automatic campaign's close-match and complements targeting has been generating real purchases at 52–55% ACOS — solid performance for a listing still building its review base. We don't need to rebuild from scratch.
+        <br><br>
+        The refined strategy concentrates budget on what's already converting, adds the feature keyword exact match layer on top, and systematically expands reach as the listing's conversion data strengthens.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 2: COMPETITIVE -->
+<div id="competitive" class="section">
+  <div class="section-eyebrow">02 — Market Landscape</div>
+  <h2 class="section-title">Understanding the <em>Competitive</em> Environment</h2>
+
+  <p style="margin-bottom:28px; color:#5a4a3a; max-width:680px;">A Helium 10 Xray analysis of the summer dress category (May 2026) gives us a clear picture of where San Vera sits today and where the pricing opportunity lies.</p>
+
+  <div class="price-chart">
+    <div class="price-chart-title">Price Distribution — Summer Dresses Category (Helium 10 Xray, May 2026)</div>
+    <div class="price-bar-row">
+      <div class="price-bar-label" style="font-size:11px;">WIHOLL (top seller)</div>
+      <div class="price-bar-track">
+        <div class="price-bar-fill competitor" style="width: 33%;">$14.99–19.99</div>
+      </div>
+    </div>
+    <div class="price-bar-row">
+      <div class="price-bar-label" style="font-size:11px;">Sampeel ($137k/mo)</div>
+      <div class="price-bar-track">
+        <div class="price-bar-fill competitor" style="width: 47%;">$23.99</div>
+      </div>
+    </div>
+    <div class="price-bar-row">
+      <div class="price-bar-label" style="font-size:11px;">Category median</div>
+      <div class="price-bar-track">
+        <div class="price-bar-fill competitor" style="width: 47%;">$23.99</div>
+      </div>
+    </div>
+    <div class="price-bar-row">
+      <div class="price-bar-label" style="font-size:11px;">PRETTYGARDEN</div>
+      <div class="price-bar-track">
+        <div class="price-bar-fill competitor" style="width: 70%;">$35.99</div>
+      </div>
+    </div>
+    <div class="price-bar-row">
+      <div class="price-bar-label" style="font-size:11px;">BTFBM (3,278 reviews)</div>
+      <div class="price-bar-track">
+        <div class="price-bar-fill competitor" style="width: 90%;">$45.89</div>
+      </div>
+    </div>
+    <div class="price-bar-row">
+      <div class="price-bar-label" style="font-size:11px; font-weight:700; color:var(--green-soft);">San Vera ✓ Confirmed</div>
+      <div class="price-bar-track">
+        <div class="price-bar-fill target" style="width: 78%;">$39.99 — confirmed price</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <strong>$39.99 is the right positioning.</strong> BTFBM commands $45.89 with 3,278 reviews and generates $54,000/month. San Vera at $39.99 is priced below that benchmark while still projecting quality. More importantly, at $39.99 we sit <em>above</em> the fast-fashion noise ($15–$25) and in the consideration segment where shoppers are actively comparing quality. That's exactly where we want to be for the summer season push.
+  </div>
+
+  <div class="two-col">
+    <div>
+      <div class="mini-title">What Established Competitors Have Built</div>
+      <ul class="dot-list">
+        <li>500–5,000+ reviews with 4.3–4.5 star ratings</li>
+        <li>Organic rank on high-volume category keywords built over 1–3 years</li>
+        <li>Price points set to maximise volume — not margin</li>
+        <li>Review velocity of 100–450 new reviews per month</li>
+        <li>Deep algorithm trust from sustained purchase history</li>
+      </ul>
+    </div>
+    <div>
+      <div class="mini-title">San Vera's Genuine Differentiators</div>
+      <ul class="dot-list">
+        <li>Crochet trim + soft inner lining — a rare combination at any price point</li>
+        <li>Petite-plus sizing — an underserved and loyal customer segment</li>
+        <li>Strapless smocked bodice — "no tan lines" is a genuinely compelling travel hook</li>
+        <li>Three versatile colourways including ivory — strong gifting and occasion appeal</li>
+        <li>At $39.99, San Vera is priced above the crowded fast-fashion segment with room to compete on quality</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 3: LEARNINGS -->
+<div id="learnings" class="section">
+  <div class="section-eyebrow">03 — What the Data Taught Us</div>
+  <h2 class="section-title">Launch Phase Learnings & <em>How We're Applying Them</em></h2>
+
+  <p style="margin-bottom:32px;color:#5a4a3a;max-width:680px;">The launch campaigns were a deliberate exploration of the market. Here is how each learning is now being translated into a more refined, more efficient strategy.</p>
+
+  <div class="evolution-block">
+    <div class="evolution-side phase-a">
+      <div class="evolution-header phase-a">↗ Launch Phase Approach</div>
+      <div class="evolution-item"><div class="evo-icon past">→</div><div>Broad keyword coverage across multiple match types to understand what the market responds to</div></div>
+      <div class="evolution-item"><div class="evo-icon past">→</div><div>Multiple campaigns running in parallel to test different targeting angles simultaneously</div></div>
+      <div class="evolution-item"><div class="evo-icon past">→</div><div>All four auto targeting groups active to maximise discovery surface area</div></div>
+      <div class="evolution-item"><div class="evo-icon past">→</div><div>Category-level keywords included to test whether the listing could compete at scale</div></div>
+      <div class="evolution-item"><div class="evo-icon past">→</div><div>Wider budget allocation to generate enough data across all experiments</div></div>
+    </div>
+    <div class="evolution-side phase-b">
+      <div class="evolution-header phase-b">✓ Refined Strategy — Applied Now</div>
+      <div class="evolution-item"><div class="evo-icon now">✓</div><div>Focused on feature-specific exact match keywords where San Vera's product is the natural answer</div></div>
+      <div class="evolution-item"><div class="evo-icon now">✓</div><div>Consolidated to 2 high-quality campaigns — budget concentrates and each campaign optimises faster</div></div>
+      <div class="evolution-item"><div class="evo-icon now">✓</div><div>Auto campaign running only close-match + complements — the two targets that showed real purchase intent</div></div>
+      <div class="evolution-item"><div class="evo-icon now">✓</div><div>Category-level terms introduced in Phase 2 and Phase 3 on a data-driven, timed schedule</div></div>
+      <div class="evolution-item"><div class="evo-icon now">✓</div><div>Budgets scaled to the sell-through requirement — enough to hit 58 units/week across all phases</div></div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Playfair Display',serif;font-size:22px;color:var(--espresso);margin:40px 0 16px;">Search Term Filtering — Protecting Budget Quality</h3>
+  <p style="font-size:14px;color:#5a4a3a;margin-bottom:16px;">One of the most impactful refinements is the addition of negative keywords. The auto campaign was naturally matching to some adjacent but non-converting search queries. These have now been excluded, ensuring every click is genuinely in-market for a dress like San Vera's.</p>
+
+  <div class="neg-kw-grid">
+    <span class="neg-kw-tag">free people</span>
+    <span class="neg-kw-tag">sewing pattern</span>
+    <span class="neg-kw-tag">crochet pattern</span>
+    <span class="neg-kw-tag">dress form</span>
+    <span class="neg-kw-tag">wedding dress</span>
+    <span class="neg-kw-tag">prom dress</span>
+    <span class="neg-kw-tag">formal dress</span>
+    <span class="neg-kw-tag">bridesmaid</span>
+    <span class="neg-kw-tag">maternity dress</span>
+    <span class="neg-kw-tag">pattern</span>
+    <span class="neg-kw-tag">WIHOLL</span>
+    <span class="neg-kw-tag">ANRABESS</span>
+    <span class="neg-kw-tag">Sampeel</span>
+    <span class="neg-kw-tag">dress tutorial</span>
+    <span class="neg-kw-tag">how to make</span>
+    <span class="neg-kw-tag">fabric</span>
+    <span class="neg-kw-tag">nightgown</span>
+    <span class="neg-kw-tag">pajama dress</span>
+    <span class="neg-kw-tag">swimsuit coverup</span>
+    <span class="neg-kw-tag">swimwear cover</span>
+  </div>
+</div>
+
+<!-- SECTION 4: CAMPAIGNS -->
+<div id="campaigns" class="section">
+  <div class="section-eyebrow">04 — Refined Campaign Structure</div>
+  <h2 class="section-title">The New Architecture: <em>Focused, Efficient,</em> Scalable</h2>
+
+  <p style="margin-bottom:32px;color:#5a4a3a;max-width:680px;">The refined structure concentrates spend where the data says it performs, while holding broader campaigns in reserve for the right moment — when the listing has the review count to convert them profitably.</p>
+
+  <table class="campaign-table">
+    <thead>
+      <tr>
+        <th>Campaign</th>
+        <th>Type</th>
+        <th>Status</th>
+        <th>Daily Budget</th>
+        <th>Bid Strategy</th>
+        <th>ACOS Expectation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>SP — Auto (Close-Match + Complements)</strong><br><span style="font-size:12px;color:var(--brown);">Discovery + search term harvesting. Feeds the manual campaign with proven converters.</span></td>
+        <td><span class="tag tag-auto">Auto</span></td>
+        <td><span class="tag tag-active">Active</span></td>
+        <td>$15–20</td>
+        <td>Fixed Bids</td>
+        <td>55–70% — data building</td>
+      </tr>
+      <tr>
+        <td><strong>SP — Manual Exact (Feature Keywords)</strong><br><span style="font-size:12px;color:var(--brown);">8 specific, high-intent keywords matched to San Vera's unique product attributes.</span></td>
+        <td><span class="tag tag-exact">Exact</span></td>
+        <td><span class="tag tag-active">Active</span></td>
+        <td>$20–25</td>
+        <td>Fixed Bids</td>
+        <td>45–65% — improving weekly</td>
+      </tr>
+      <tr>
+        <td><strong>SP — Phrase Match (Style + Occasion)</strong><br><span style="font-size:12px;color:var(--brown);">Beach dress, vacation dress, boho, sundresses — mid-volume, mid-competition.</span></td>
+        <td><span class="tag tag-phrase">Phrase</span></td>
+        <td><span class="tag tag-hold">Held for Phase 2</span></td>
+        <td>$25</td>
+        <td>—</td>
+        <td>Unlocks at 50 reviews</td>
+      </tr>
+      <tr>
+        <td><strong>SP — ASIN Targeting (Competitor Pages)</strong><br><span style="font-size:12px;color:var(--brown);">Show San Vera to shoppers actively browsing competitor listings.</span></td>
+        <td><span class="tag tag-phrase">Product</span></td>
+        <td><span class="tag tag-hold">Held for Phase 2</span></td>
+        <td>$20</td>
+        <td>—</td>
+        <td>Unlocks at 50 reviews</td>
+      </tr>
+      <tr>
+        <td><strong>SP — Manual Exact (Category Scale)</strong><br><span style="font-size:12px;color:var(--brown);">"Summer dresses for women," "maxi dresses for women" — high volume, high competition.</span></td>
+        <td><span class="tag tag-exact">Exact</span></td>
+        <td><span class="tag tag-later">Held for Phase 3</span></td>
+        <td>$40–60</td>
+        <td>—</td>
+        <td>Unlocks at 100 reviews</td>
+      </tr>
+      <tr>
+        <td><strong>Sponsored Brands — Store Spotlight</strong><br><span style="font-size:12px;color:var(--brown);">Brand awareness + new-to-brand shoppers. All 3 colours featured.</span></td>
+        <td><span class="tag tag-auto">SB</span></td>
+        <td><span class="tag tag-later">Held for Phase 3</span></td>
+        <td>$30–50</td>
+        <td>—</td>
+        <td>Unlocks at 100 reviews</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="highlight-box">
+    <strong>Why Fixed Bids right now:</strong> Dynamic bidding is powerful when Amazon has enough purchase history on a listing to predict conversion probability. At this stage, fixed bids give us full cost control and prevent Amazon from inflating bids on searches where the listing hasn't yet proven itself. We will switch to Dynamic Bids (Down Only) in Phase 2 once the listing has a stronger conversion signal.
+  </div>
+</div>
+
+<!-- SECTION 5: KEYWORDS -->
+<div id="keywords" class="section">
+  <div class="section-eyebrow">05 — Keyword Strategy</div>
+  <h2 class="section-title">The <em>Right Keywords</em> at Each Stage of Growth</h2>
+
+  <p style="margin-bottom:32px;color:#5a4a3a;max-width:680px;">Keywords are unlocked in sequence — not because there's anything wrong with category-level terms, but because those keywords require a listing with reviews to convert them profitably. Activating them too early means paying for traffic that the listing isn't yet ready to close.</p>
+
+  <h3 style="font-family:'Playfair Display',serif;font-size:20px;color:var(--espresso);margin-bottom:16px;">Phase 1 — Active Now: Feature & Intent Keywords</h3>
+  <p style="font-size:14px;color:#5a4a3a;margin-bottom:20px;">These are the searches where San Vera has a natural, specific match. Shoppers using these terms have already self-selected for exactly what this product offers — and our launch data confirms they convert.</p>
+
+  <div class="keyword-grid">
+    <div class="kw-row header">
+      <div class="kw-cell">Keyword</div>
+      <div class="kw-cell">Bid</div>
+      <div class="kw-cell">Match Type</div>
+      <div class="kw-cell">Priority</div>
+      <div class="kw-cell">Rationale</div>
+    </div>
+    <div class="kw-row">
+      <div class="kw-cell kw-keyword">smocked summer dress</div>
+      <div class="kw-cell kw-bid">$0.75</div>
+      <div class="kw-cell"><span class="tag tag-exact">Exact</span></div>
+      <div class="kw-cell"><span class="tag tag-active">Top</span></div>
+      <div class="kw-cell" style="font-size:12px;">22% ACOS in launch data — the single strongest signal in the account</div>
+    </div>
+    <div class="kw-row">
+      <div class="kw-cell kw-keyword">strapless summer dress</div>
+      <div class="kw-cell kw-bid">$0.80</div>
+      <div class="kw-cell"><span class="tag tag-exact">Exact</span></div>
+      <div class="kw-cell"><span class="tag tag-active">Top</span></div>
+      <div class="kw-cell" style="font-size:12px;">46% ACOS on broad — exact match will be considerably more efficient</div>
+    </div>
+    <div class="kw-row">
+      <div class="kw-cell kw-keyword">casual summer dresses for women</div>
+      <div class="kw-cell kw-bid">$0.77</div>
+      <div class="kw-cell"><span class="tag tag-exact">Exact</span></div>
+      <div class="kw-cell"><span class="tag tag-active">Top</span></div>
+      <div class="kw-cell" style="font-size:12px;">35% ACOS already confirmed on exact — our best-performing exact match term</div>
+    </div>
+    <div class="kw-row">
+      <div class="kw-cell kw-keyword">smocked bandeau dress</div>
+      <div class="kw-cell kw-bid">$0.65</div>
+      <div class="kw-cell"><span class="tag tag-exact">Exact</span></div>
+      <div class="kw-cell" style="font-size:12px;">High</div>
+      <div class="kw-cell" style="font-size:12px;">Describes San Vera's product precisely — shoppers searching this are already pre-sold</div>
+    </div>
+    <div class="kw-row">
+      <div class="kw-cell kw-keyword">tiered maxi dress</div>
+      <div class="kw-cell kw-bid">$0.65</div>
+      <div class="kw-cell"><span class="tag tag-exact">Exact</span></div>
+      <div class="kw-cell" style="font-size:12px;">High</div>
+      <div class="kw-cell" style="font-size:12px;">Style-specific with lower competition than "maxi dress" alone</div>
+    </div>
+    <div class="kw-row">
+      <div class="kw-cell kw-keyword">bandeau maxi dress</div>
+      <div class="kw-cell kw-bid">$0.65</div>
+      <div class="kw-cell"><span class="tag tag-exact">Exact</span></div>
+      <div class="kw-cell" style="font-size:12px;">High</div>
+      <div class="kw-cell" style="font-size:12px;">Very specific intent, minimal competition, excellent conversion potential</div>
+    </div>
+    <div class="kw-row">
+      <div class="kw-cell kw-keyword">lined summer dress</div>
+      <div class="kw-cell kw-bid">$0.60</div>
+      <div class="kw-cell"><span class="tag tag-exact">Exact</span></div>
+      <div class="kw-cell" style="font-size:12px;">Medium</div>
+      <div class="kw-cell" style="font-size:12px;">Comfort-focused shoppers — San Vera's soft lining is a direct answer to this search</div>
+    </div>
+    <div class="kw-row">
+      <div class="kw-cell kw-keyword">crochet trim summer dress</div>
+      <div class="kw-cell kw-bid">$0.55</div>
+      <div class="kw-cell"><span class="tag tag-exact">Exact</span></div>
+      <div class="kw-cell" style="font-size:12px;">Medium</div>
+      <div class="kw-cell" style="font-size:12px;">Unique to San Vera's design — extremely low competition, high purchase intent</div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Playfair Display',serif;font-size:20px;color:var(--espresso);margin:40px 0 16px;">Phase 2 — Unlock at 50+ Reviews: Style & Occasion Terms</h3>
+  <p style="font-size:14px;color:#5a4a3a;margin-bottom:20px;">Once the listing has 50 reviews and a strong rating, these mid-volume, style-led keywords become viable. They have meaningful search volume and align well with San Vera's brand positioning.</p>
+
+  <div class="keyword-grid">
+    <div class="kw-row header">
+      <div class="kw-cell">Keyword</div>
+      <div class="kw-cell">Suggested Bid</div>
+      <div class="kw-cell">Match Type</div>
+      <div class="kw-cell">Monthly Volume</div>
+      <div class="kw-cell">Why San Vera Fits</div>
+    </div>
+    <div class="kw-row">
+      <div class="kw-cell kw-keyword">beach dresses for women</div>
+      <div class="kw-cell kw-bid">$0.65</div>
+      <div class="kw-cell"><span class="tag tag-phrase">Phrase</span></div>
+      <div class="kw-cell" style="font-size:12px;">59,000</div>
+      <div class="kw-cell" style="font-size:12px;">"Ultimate beach dress" — directly in the listing copy</div>
+    </div>
+    <div class="kw-row">
+      <div class="kw-cell kw-keyword">vacation dress women</div>
+      <div class="kw-cell kw-bid">$0.60</div>
+      <div class="kw-cell"><span class="tag tag-phrase">Phrase</span></div>
+      <div class="kw-cell" style="font-size:12px;">36,000</div>
+      <div class="kw-cell" style="font-size:12px;">Core positioning — "Holiday dress" is in the product title</div>
+    </div>
+    <div class="kw-row">
+      <div class="kw-cell kw-keyword">sundresses for women</div>
+      <div class="kw-cell kw-bid">$0.65</div>
+      <div class="kw-cell"><span class="tag tag-exact">Exact</span></div>
+      <div class="kw-cell" style="font-size:12px;">229,000</div>
+      <div class="kw-cell" style="font-size:12px;">Strong volume — competitive but viable with 50+ reviews</div>
+    </div>
+    <div class="kw-row">
+      <div class="kw-cell kw-keyword">boho summer dress</div>
+      <div class="kw-cell kw-bid">$0.55</div>
+      <div class="kw-cell"><span class="tag tag-phrase">Phrase</span></div>
+      <div class="kw-cell" style="font-size:12px;">38,500</div>
+      <div class="kw-cell" style="font-size:12px;">"Boho-chic vibes" is a direct bullet point — strong brand alignment</div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Playfair Display',serif;font-size:20px;color:var(--espresso);margin:40px 0 16px;">Phase 3 — Unlock at 100+ Reviews: Category Scale</h3>
+  <p style="font-size:14px;color:#5a4a3a;margin-bottom:20px;">These are the high-volume, high-competition keywords where the biggest revenue opportunity lives. With 100+ reviews and a strong rating, San Vera will be fully equipped to compete here.</p>
+
+  <div class="keyword-grid">
+    <div class="kw-row header">
+      <div class="kw-cell">Keyword</div>
+      <div class="kw-cell">Suggested Bid</div>
+      <div class="kw-cell">Match Type</div>
+      <div class="kw-cell">Monthly Volume</div>
+      <div class="kw-cell">Notes</div>
+    </div>
+    <div class="kw-row">
+      <div class="kw-cell kw-keyword">summer dresses for women</div>
+      <div class="kw-cell kw-bid">$0.55+</div>
+      <div class="kw-cell"><span class="tag tag-exact">Exact</span></div>
+      <div class="kw-cell" style="font-size:12px;">500,000</div>
+      <div class="kw-cell" style="font-size:12px;">The main category keyword — the big prize. Ready at 100+ reviews</div>
+    </div>
+    <div class="kw-row">
+      <div class="kw-cell kw-keyword">maxi dresses for women</div>
+      <div class="kw-cell kw-bid">$0.55</div>
+      <div class="kw-cell"><span class="tag tag-exact">Exact</span></div>
+      <div class="kw-cell" style="font-size:12px;">256,000</div>
+      <div class="kw-cell" style="font-size:12px;">Strong volume, direct product match</div>
+    </div>
+    <div class="kw-row">
+      <div class="kw-cell kw-keyword">summer dresses for women 2026</div>
+      <div class="kw-cell kw-bid">$0.55</div>
+      <div class="kw-cell"><span class="tag tag-exact">Exact</span></div>
+      <div class="kw-cell" style="font-size:12px;">259,000</div>
+      <div class="kw-cell" style="font-size:12px;">+1,048% growth trend — seasonal surge opportunity</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 6: TIMELINE -->
+<div id="timeline" class="section">
+  <div class="section-eyebrow">06 — Phased Roadmap</div>
+  <h2 class="section-title">A Clear <em>Three-Phase</em> Path to Profitable Growth</h2>
+
+  <div class="callout">
+    <div class="callout-title">Why Three Phases and Not One Big Push?</div>
+    <div class="callout-body">
+      Dumping the entire budget into week one would generate clicks but not necessarily sales — a new listing needs a few weeks of consistent purchase signals before Amazon's algorithm starts ranking it organically for broader terms. Phase 1 builds that foundation. Phase 2 capitalises on it at exactly the moment summer demand peaks. Phase 3 converts the organic momentum into a final clearance sprint. <strong>It is a sequence built for this specific 12-week window.</strong>
+    </div>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-phase">
+      <div class="phase-header">
+        <div class="phase-label">Phase 1</div>
+        <div class="phase-title">Velocity Build — Establish Sales Rhythm (May 8 → June 1)</div>
+      </div>
+      <div class="phase-body">
+        <p style="font-size:14px;color:#5a4a3a;margin-bottom:20px;">3.5 weeks to establish a consistent daily sales rate and feed the Amazon algorithm with purchase signals. The goal is to reach a steady 8–10 units per day by end of May. Campaigns are tight and data-focused — every week we harvest converting search terms from auto and sharpen the manual campaign around what works.</p>
+        <ul class="dot-list">
+          <li>Price confirmed at $39.99 — all variations updated and live</li>
+          <li>Auto campaign (close-match + complements) running at $100–120/day</li>
+          <li>Manual Exact (feature keywords) running at $120–150/day</li>
+          <li>Target: sell 100–160 units by June 1</li>
+          <li>Search term report reviewed weekly — converting terms moved to manual, negatives added continuously</li>
+          <li>End of phase: assess top-selling variations (Sky Blue S/M, Ivory S historically strongest) and increase bids on those SKUs</li>
+          <li>ACOS of 60–70% is expected and appropriate — we are buying velocity and algorithm trust</li>
+        </ul>
+        <div class="phase-metrics">
+          <div>
+            <div class="phase-metric-value">$100–150</div>
+            <div class="phase-metric-label">Daily ad budget</div>
+          </div>
+          <div>
+            <div class="phase-metric-value">60–70%</div>
+            <div class="phase-metric-label">ACOS target</div>
+          </div>
+          <div>
+            <div class="phase-metric-value">100–160</div>
+            <div class="phase-metric-label">Units target</div>
+          </div>
+          <div>
+            <div class="phase-metric-value">~$6,500</div>
+            <div class="phase-metric-label">Revenue target</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-phase">
+      <div class="phase-header">
+        <div class="phase-label">Phase 2</div>
+        <div class="phase-title">Scale — Full Category Push (June 1 → July 1)</div>
+      </div>
+      <div class="phase-body">
+        <p style="font-size:14px;color:#5a4a3a;margin-bottom:20px;">June is peak summer dress season. This is the highest-opportunity month and the one where we push hardest. Phase 1 data gives us a refined keyword list — we now open phrase match, ASIN targeting, and broader exact match terms. Daily unit target increases to 12–15 units. Budget scales in line with velocity.</p>
+        <ul class="dot-list">
+          <li>Activate phrase match campaign: beach dresses, vacation dress, boho dress, sundresses — $25–35/day</li>
+          <li>Activate ASIN targeting: competitor product pages (WIHOLL, ANRABESS) — $20–25/day</li>
+          <li>Scale top Phase 1 keywords: increase bids 15–20% on terms converting under 50% ACOS</li>
+          <li>Add "summer dresses for women 2026" on exact match — +1,048% seasonal trend, peak demand term</li>
+          <li>Target: sell 210–260 units in June</li>
+          <li>Switch auto campaign to Dynamic Bids (Down Only) — listing now has purchase history for Amazon to use</li>
+          <li>ACOS target: 48–55% — approaching and crossing break-even at $39.99</li>
+        </ul>
+        <div class="phase-metrics">
+          <div>
+            <div class="phase-metric-value">$150–200</div>
+            <div class="phase-metric-label">Daily ad budget</div>
+          </div>
+          <div>
+            <div class="phase-metric-value">48–55%</div>
+            <div class="phase-metric-label">ACOS target</div>
+          </div>
+          <div>
+            <div class="phase-metric-value">210–260</div>
+            <div class="phase-metric-label">Units target</div>
+          </div>
+          <div>
+            <div class="phase-metric-value">~$9,500</div>
+            <div class="phase-metric-label">Revenue target</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-phase">
+      <div class="phase-header">
+        <div class="phase-label">Phase 3</div>
+        <div class="phase-title">Final Push — Clear All Remaining Inventory (July 1 → July 31)</div>
+      </div>
+      <div class="phase-body">
+        <p style="font-size:14px;color:#5a4a3a;margin-bottom:20px;">July is the final window. By this point we have strong sales history, a refined keyword set, and ~280–390 units remaining. The objective is to clear all inventory before month end. If velocity on any size slows in mid-July, a targeted coupon or modest adjustment on slow-moving SKUs (XL/XXL) can accelerate movement without compromising the main sizes.</p>
+        <ul class="dot-list">
+          <li>Activate full category keywords: "summer dresses for women," "maxi dresses for women" — backed by sales history</li>
+          <li>Launch Sponsored Brands if reviews have reached 25+ — headline: "San Vera — Effortless Summer Style, No Tan Lines"</li>
+          <li>Increase top-of-search placement bid: +30–40% to dominate visibility in peak purchase window</li>
+          <li>Target: clear remaining 280–390 units — all inventory out by July 31</li>
+          <li>Mid-July check: if any size has 30+ units remaining at low velocity, consider a 5–10% coupon on that ASIN only</li>
+          <li>ACOS target: 40–50% — organic momentum from Phases 1 & 2 naturally reduces blended ACOS</li>
+        </ul>
+        <div class="phase-metrics">
+          <div>
+            <div class="phase-metric-value">$150–220</div>
+            <div class="phase-metric-label">Daily ad budget</div>
+          </div>
+          <div>
+            <div class="phase-metric-value">40–50%</div>
+            <div class="phase-metric-label">ACOS target</div>
+          </div>
+          <div>
+            <div class="phase-metric-value">280–390</div>
+            <div class="phase-metric-label">Units target</div>
+          </div>
+          <div>
+            <div class="phase-metric-value">~$13,000</div>
+            <div class="phase-metric-label">Revenue target</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Playfair Display',serif;font-size:22px;color:var(--espresso);margin-bottom:24px;">Expected ACOS Trajectory Across the 12 Weeks</h3>
+  <p style="font-size:14px;color:#5a4a3a;margin-bottom:24px;">ACOS improves naturally as sales history and conversion data accumulate. This is the expected progression — each phase benefits directly from the groundwork laid in the one before it.</p>
+
+  <div class="acos-ladder">
+    <div class="acos-rung">
+      <div class="acos-reviews">May 8 — June 1</div>
+      <div class="acos-value" style="color:var(--terracotta);">60–70%</div>
+      <div class="acos-label">Phase 1 — Velocity Build</div>
+    </div>
+    <div class="acos-rung">
+      <div class="acos-reviews">June 1 — July 1</div>
+      <div class="acos-value" style="color:var(--gold);">48–55%</div>
+      <div class="acos-label">Phase 2 — Peak Season Scale</div>
+    </div>
+    <div class="acos-rung">
+      <div class="acos-reviews">July 1 — July 15</div>
+      <div class="acos-value" style="color:var(--sky);">43–50%</div>
+      <div class="acos-label">Phase 3 — Final Push</div>
+    </div>
+    <div class="acos-rung">
+      <div class="acos-reviews">Break-even at $39.99</div>
+      <div class="acos-value" style="color:var(--green-soft);">~44%</div>
+      <div class="acos-label">Phase 2 onwards: at or below</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 7: PROJECTIONS -->
+<div id="projections" class="section">
+  <div class="section-eyebrow">07 — Financial Projections</div>
+  <h2 class="section-title">Revenue & Ad Spend <em>Projections</em> — 12 Weeks to Clear</h2>
+
+  <p style="margin-bottom:32px;color:#5a4a3a;max-width:680px;">Based on ~700 units at $39.99, the total revenue potential is <strong>~$28,000</strong>. The plan below shows how that breaks across the three phases, with ad spend calibrated to the sell-through requirement. Total ad investment of $12,500–$15,500 across 12 weeks is the expected range to clear all inventory by July 31.</p>
+
+  <div class="projection-grid">
+    <div class="proj-card">
+      <div class="proj-phase">Phase 1</div>
+      <div class="proj-period">May 8 → June 1</div>
+      <div class="proj-metric">
+        <div class="proj-value">~$6,500</div>
+        <div class="proj-label">Revenue target (100–160 units)</div>
+      </div>
+      <div class="proj-metric">
+        <div class="proj-value gold">60–70%</div>
+        <div class="proj-label">Expected ACOS</div>
+      </div>
+      <div class="proj-metric">
+        <div class="proj-value">$3,500–4,000</div>
+        <div class="proj-label">Est. Ad Spend</div>
+      </div>
+      <div class="proj-metric">
+        <div class="proj-value" style="font-size:22px;color:var(--terracotta);">Velocity Phase</div>
+        <div class="proj-label">8–10 units/day target</div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-phase">Phase 2</div>
+      <div class="proj-period">June 1 → July 1</div>
+      <div class="proj-metric">
+        <div class="proj-value">~$9,500</div>
+        <div class="proj-label">Revenue target (210–260 units)</div>
+      </div>
+      <div class="proj-metric">
+        <div class="proj-value gold">48–55%</div>
+        <div class="proj-label">Expected ACOS</div>
+      </div>
+      <div class="proj-metric">
+        <div class="proj-value">$4,500–5,500</div>
+        <div class="proj-label">Est. Ad Spend</div>
+      </div>
+      <div class="proj-metric">
+        <div class="proj-value" style="font-size:22px;color:var(--sky);">Near Break-Even</div>
+        <div class="proj-label">12–15 units/day target</div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-phase">Phase 3</div>
+      <div class="proj-period">July 1 → July 31</div>
+      <div class="proj-metric">
+        <div class="proj-value">~$13,000</div>
+        <div class="proj-label">Revenue target (280–390 units)</div>
+      </div>
+      <div class="proj-metric">
+        <div class="proj-value green">40–50%</div>
+        <div class="proj-label">Expected ACOS</div>
+      </div>
+      <div class="proj-metric">
+        <div class="proj-value">$5,000–6,000</div>
+        <div class="proj-label">Est. Ad Spend</div>
+      </div>
+      <div class="proj-metric">
+        <div class="proj-value green" style="font-size:22px;">Zero Stock</div>
+        <div class="proj-label">All inventory cleared</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <strong>Total picture:</strong> ~700 units × $39.99 = <strong>~$28,000 gross revenue</strong>. Estimated total ad spend across all three phases: <strong>$13,000–$15,500</strong>. Blended ACOS across the full 12 weeks: <strong>~46–55%</strong>. Break-even at $39.99 is ~44% — meaning Phase 2 and Phase 3 are at or above profitability once the listing's conversion history is established. These are working estimates and will be updated at each phase transition based on real performance.
+  </div>
+
+  <div class="two-col">
+    <div>
+      <div class="mini-title">Unit Economics at $39.99 (Confirmed Price)</div>
+      <ul class="dot-list">
+        <li><strong>Sale price:</strong> $39.99</li>
+        <li><strong>Amazon fees (FBA + referral):</strong> ~$13.50</li>
+        <li><strong>Estimated COGS:</strong> ~$8–10</li>
+        <li><strong>Gross contribution before ads:</strong> ~$16.49–$18.49</li>
+        <li><strong>Break-even ACOS:</strong> ~44%</li>
+        <li><strong>Phase 2 onwards: at or below break-even — majority of inventory sold profitably</strong></li>
+      </ul>
+    </div>
+    <div>
+      <div class="mini-title">Sell-Through Summary</div>
+      <ul class="dot-list">
+        <li><strong>Total inventory:</strong> ~700 units</li>
+        <li><strong>Phase 1 target (3.5 weeks):</strong> 100–160 units</li>
+        <li><strong>Phase 2 target (4 weeks):</strong> 210–260 units</li>
+        <li><strong>Phase 3 target (4 weeks):</strong> 280–390 units</li>
+        <li><strong>Daily run rate needed:</strong> ~8.3 units/day average</li>
+        <li><strong>Deadline:</strong> July 31, 2026 — all stock cleared</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 8: ACTIONS -->
+<div id="actions" class="section">
+  <div class="section-eyebrow">08 — Next Steps</div>
+  <h2 class="section-title">The Plan in <em>Motion</em></h2>
+
+  <h3 style="font-family:'Playfair Display',serif;font-size:20px;color:var(--espresso);margin-bottom:20px;">Already Implemented</h3>
+
+  <div class="checklist">
+    <div class="checklist-item done">
+      <div class="checklist-box"></div>
+      <div class="checklist-content">
+        <strong>Campaign consolidation complete</strong>
+        <span>Budget concentrated in the 2 campaigns that have demonstrated the strongest performance signals — efficiency and data quality both improve as a result.</span>
+      </div>
+      <div class="checklist-priority priority-now">Done</div>
+    </div>
+    <div class="checklist-item done">
+      <div class="checklist-box"></div>
+      <div class="checklist-content">
+        <strong>Auto campaign refined to best-performing targets</strong>
+        <span>Close-match and complements — which delivered 52–55% ACOS — are active. All other auto targets held for Phase 2.</span>
+      </div>
+      <div class="checklist-priority priority-now">Done</div>
+    </div>
+    <div class="checklist-item done">
+      <div class="checklist-box"></div>
+      <div class="checklist-content">
+        <strong>Feature keyword exact match campaign launched</strong>
+        <span>8 keywords targeting the specific searches that match San Vera's product attributes — smocked, strapless, bandeau, tiered, crochet trim, lined.</span>
+      </div>
+      <div class="checklist-priority priority-now">Done</div>
+    </div>
+    <div class="checklist-item done">
+      <div class="checklist-box"></div>
+      <div class="checklist-content">
+        <strong>Search term filtering implemented</strong>
+        <span>20 non-converting search categories added as negatives — ad spend now reaches only in-market buyers.</span>
+      </div>
+      <div class="checklist-priority priority-now">Done</div>
+    </div>
+    <div class="checklist-item done">
+      <div class="checklist-box"></div>
+      <div class="checklist-content">
+        <strong>Price confirmed at $39.99</strong>
+        <span>All 15 variations updated. Positions San Vera competitively in the mid-market quality segment for the summer push.</span>
+      </div>
+      <div class="checklist-priority priority-now">Done</div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Playfair Display',serif;font-size:20px;color:var(--espresso);margin:40px 0 20px;">Ongoing — Every Week</h3>
+
+  <div class="checklist">
+    <div class="checklist-item">
+      <div class="checklist-box"></div>
+      <div class="checklist-content">
+        <strong>Search term report review and harvesting</strong>
+        <span>Converting search terms from auto moved to manual exact match. Non-converting terms added as negatives. This loop compounds every week — the campaign gets smarter each cycle.</span>
+      </div>
+      <div class="checklist-priority priority-now">Weekly</div>
+    </div>
+    <div class="checklist-item">
+      <div class="checklist-box"></div>
+      <div class="checklist-content">
+        <strong>Bid optimisation on manual exact campaign</strong>
+        <span>Keywords at 20+ clicks with no purchase: reduce bid 15%. Keywords converting under 50% ACOS: increase bid 10–15% to capture more volume before season peaks.</span>
+      </div>
+      <div class="checklist-priority priority-now">Weekly</div>
+    </div>
+    <div class="checklist-item">
+      <div class="checklist-box"></div>
+      <div class="checklist-content">
+        <strong>Inventory & velocity check by variation</strong>
+        <span>Track units sold per SKU. Flag any variations falling behind pace. Sky Blue S/M and Ivory S are historically strongest — these get priority budget if needed.</span>
+      </div>
+      <div class="checklist-priority priority-now">Weekly</div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Playfair Display',serif;font-size:20px;color:var(--espresso);margin:40px 0 20px;">June 1 — Phase 2 Activation</h3>
+
+  <div class="checklist">
+    <div class="checklist-item">
+      <div class="checklist-box"></div>
+      <div class="checklist-content">
+        <strong>Launch phrase match campaign</strong>
+        <span>Beach dresses, vacation dress, boho dress, sundresses — 4 keywords at $0.55–$0.65, $25–35/day budget.</span>
+      </div>
+      <div class="checklist-priority priority-soon">June 1</div>
+    </div>
+    <div class="checklist-item">
+      <div class="checklist-box"></div>
+      <div class="checklist-content">
+        <strong>Activate ASIN targeting on competitor listings</strong>
+        <span>Target WIHOLL and ANRABESS product pages — capture shoppers already browsing the category who are ready to buy.</span>
+      </div>
+      <div class="checklist-priority priority-soon">June 1</div>
+    </div>
+    <div class="checklist-item">
+      <div class="checklist-box"></div>
+      <div class="checklist-content">
+        <strong>Add "summer dresses for women 2026" on exact match</strong>
+        <span>+1,048% search trend growth. Peak season term — activating in June places us right in front of the demand surge.</span>
+      </div>
+      <div class="checklist-priority priority-soon">June 1</div>
+    </div>
+    <div class="checklist-item">
+      <div class="checklist-box"></div>
+      <div class="checklist-content">
+        <strong>Switch auto to Dynamic Bids (Down Only)</strong>
+        <span>After 3.5 weeks of purchase data, the algorithm has enough history to optimise bids intelligently. This improves efficiency without losing control.</span>
+      </div>
+      <div class="checklist-priority priority-soon">June 1</div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Playfair Display',serif;font-size:20px;color:var(--espresso);margin:40px 0 20px;">July 1 — Phase 3 Final Push</h3>
+
+  <div class="checklist">
+    <div class="checklist-item">
+      <div class="checklist-box"></div>
+      <div class="checklist-content">
+        <strong>Activate full category keywords</strong>
+        <span>"Summer dresses for women," "maxi dresses for women" — high-volume terms now supported by 2 months of purchase history.</span>
+      </div>
+      <div class="checklist-priority priority-later">July 1</div>
+    </div>
+    <div class="checklist-item">
+      <div class="checklist-box"></div>
+      <div class="checklist-content">
+        <strong>Increase top-of-search placement bid by +30–40%</strong>
+        <span>Maximum visibility during the final clearance window. With 12 weeks of conversion data, top-of-search placements will be highly efficient.</span>
+      </div>
+      <div class="checklist-priority priority-later">July 1</div>
+    </div>
+    <div class="checklist-item">
+      <div class="checklist-box"></div>
+      <div class="checklist-content">
+        <strong>Mid-July inventory check — slow-mover action</strong>
+        <span>If any single size/colour has 30+ units remaining at low velocity after July 15, apply a 5–10% coupon on that ASIN only to accelerate movement without touching the main price.</span>
+      </div>
+      <div class="checklist-priority priority-later">July 15</div>
+    </div>
+    <div class="checklist-item">
+      <div class="checklist-box"></div>
+      <div class="checklist-content">
+        <strong>Sponsored Brands (if reviews reach 25+)</strong>
+        <span>Store Spotlight across all 3 colourways. Headline: "San Vera — Effortless Summer Style, No Tan Lines." Adds brand visibility without increasing cost-per-click on existing campaigns.</span>
+      </div>
+      <div class="checklist-priority priority-later">July 1</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="report-footer">
+  <div>
+    <div class="footer-brand">San Vera</div>
+    <div style="font-size:13px;color:var(--taupe);margin-top:6px;font-family:'DM Sans',sans-serif;">Amazon PPC Strategy — Confidential</div>
+  </div>
+  <div class="footer-meta">
+    <div>Report Prepared: May 2026</div>
+    <div>Product: Summer Dress — B0FHWQQ298</div>
+    <div>Current Phase: Phase 1 Active</div>
+    <div style="margin-top:8px;color:var(--gold);">For client discussion — not for distribution</div>
+  </div>
+</footer>
+
+</body>
+</html>
